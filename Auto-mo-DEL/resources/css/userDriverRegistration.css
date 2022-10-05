@@ -1,0 +1,26 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.main-div {
+    height: 80vh;
+    background-color: #1AEBB6;
+    margin: 50;
+    box-shadow: 20px 20px 40px #b2afaf;
+}
+
+.left-div {
+    height: 80vh;
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.right-div {
+    background-color: #1AEBB6;
+    padding: 75px 25px;
+}
