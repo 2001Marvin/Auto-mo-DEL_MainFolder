@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('lastName');
             $table->string('email')->unique();
             $table->string('password');
-            $table->int('age')->unsigned();
+            $table->integer('age')->unsigned();
             $table->enum('gender',['Male','Female']);
             $table->char('contactNumber',11);
             $table->binary('license');
