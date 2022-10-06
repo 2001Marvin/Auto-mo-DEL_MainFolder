@@ -26,3 +26,7 @@ require __DIR__.'/auth.php';
 Route::get('/DriverRegistration', function () {
     return view('userDriver/userDriver');
 });
+
+Route::get('/Registration', function () {
+    return view('registrationBridge');
+});

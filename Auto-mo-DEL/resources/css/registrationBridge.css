@@ -1,0 +1,56 @@
+body{
+    background-color: #1AEBB6;
+}
+
+.mainDiv{
+    margin: 100px auto;
+    background-color: #FFF;
+    height: 75vh;
+    width: 500px;
+    border-radius: 20px;
+    box-shadow: 20px 20px 40px #858484;
+}
+
+.imageHeaderDiv{
+    text-align: center;
+    display: block;
+}
+
+.logoName{
+    margin-top: -40px;
+    font-size: 40px;
+    font-family: 'Kadwa', serif;
+}
+
+.bridgeBtnDiv{
+    margin-top: 85px;
+}
+
+.bridgeBtn{
+    margin: 40px auto;
+    background-color: #1AEBB6;
+    width: 275px;
+    height: 75px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 20px;
+    cursor: pointer;
+    box-shadow: 10px 10px 20px #cac8c8;
+}
+
+.bridgeBtn:hover 
+{
+    border-radius: 15px;
+    background-color: #1AEBB6;
+    transform: scale(1.1); /* Animation */
+    transition: 0.6s;
+    box-shadow: 10px 10px 20px #57dfbd;
+}
+.bridgeBtn .bridgeBtnLink{
+    text-decoration: none;
+    color: #FFF;
+    font-family: 'Kadwa', serif;
+    font-size: 25px;
+    /* background-color: #1AEBB6; */
+}

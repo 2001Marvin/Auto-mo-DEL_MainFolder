@@ -8,6 +8,9 @@
         <title>Welcome Page</title>
 
         <!-- Fonts -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Kadwa:wght@400;700&display=swap" rel="stylesheet">
         <link href="https://fonts.bunny.net/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
 
         <!-- Styles -->
@@ -24,7 +27,7 @@
     <body class="sexybody">
         <div class="topbar">
             <a class="george" href="{{ route('login') }}">Log-in</a>
-            <a class="george" href="{{ url('/DriverRegistration') }}">Register</a>
+            <a class="george" href="{{ url('/Registration') }}">Register</a>
         </div>
             <div class="mainbox justify-content-center flex-column">
                 <div class="justify-content-center d-flex" style="margin:auto 0"> <!--div for image-->
