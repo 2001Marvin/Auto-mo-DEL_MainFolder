@@ -1,3 +1,57 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Auto-mo-DEL</title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+        
+        @vite(['resources/css/loginPage.css'])
+    </head>
+    <body>
+            <div class="container main-div my-5">
+                <div class="row">
+                    <div class="col left-div"><!-- Logo div -->
+                        <a href="/"><img src={{ URL::to('images/Auto-mo-DEL_logo.png') }} height="30%" alt="logo"></a> <!-- mao ni sa logo todd -->
+                    </div>
+                    <div class="col right-div"><!-- form div -->
+                        <h2 class="text-center">LOGIN</h2>
+                        <br>
+                        <div class="container">
+                            <form class="row g-3">
+                                <div class="col-md-12">
+                                    <label for="inputEmail" class="form-label">Email</label>
+                                    <input type="email" class="form-control" id="inputEmail">
+                                </div>
+                                <div class="col-md-12">
+                                    <label for="inputPassword" class="form-label">Password</label>
+                                    <input type="password" class="form-control" id="inputPassword">
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="radioClient" value="option1">
+                                    <label class="form-check-label" for="radioClient">Client</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="radioDriver" value="option2">
+                                    <label class="form-check-label" for="radioDriver">Driver</label>
+                                </div>
+                                <div class="col-12 text-center">
+                                    <button type="submit" class="btn btn-primary">LOGIN</button>
+                                </div>
+                            </form>
+                            <div class="signup">
+                                <h4 class="text-center">Do Not Have An Account Yet?<a href="{{ url('/Registration') }}">Sign Up</a></h4>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+    </body>
+</html>
+
+<!-- default login page sa laravel ang naa sa ubos -->
 <x-guest-layout>
     <x-auth-card>
         <x-slot name="logo">
@@ -33,13 +87,7 @@
                 <x-input-error :messages="$errors->get('password')" class="mt-2" />
             </div>
 
-            <!-- Remember Me -->
-            <div class="block mt-4">
-                <label for="remember_me" class="inline-flex items-center">
-                    <input id="remember_me" type="checkbox" class="rounded border-gray-300 text-indigo-600 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" name="remember">
-                    <span class="ml-2 text-sm text-gray-600">{{ __('Remember me') }}</span>
-                </label>
-            </div>
+           
 
             <div class="flex items-center justify-end mt-4">
                 @if (Route::has('password.request'))

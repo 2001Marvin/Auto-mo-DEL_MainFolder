@@ -1,0 +1,52 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.main-div {
+    height: 80vh;
+    background-color: #1AEBB6;
+    margin: 50;
+    box-shadow: 20px 20px 40px #b2afaf;
+}
+
+.left-div {
+    height: 80vh;
+    width: 30%;
+    background-color: #1AEBB6;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.right-div {
+    background-color: white;
+    width: 70%;
+    padding: 75px 25px;
+}
+
+
+
+.btn {
+    color: black;
+    margin: 40px auto;
+    background-color: #1AEBB6;
+    width: 275px;
+    height: 75px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 20px;
+    cursor: pointer;
+    box-shadow: 10px 10px 20px #cac8c8;
+}
+
+.btn:hover {
+    border-radius: 15px;
+    background-color: #1AEBB6;
+    transform: scale(1.1); /* Animation */
+    transition: 0.6s;
+    box-shadow: 10px 10px 20px #57dfbd;
+}
