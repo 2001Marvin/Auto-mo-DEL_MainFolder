@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserClientController;
+use App\Http\Controllers\DriverController;
 
 /*
 |--------------------------------------------------------------------------
@@ -27,6 +28,8 @@ require __DIR__.'/auth.php';
 Route::get('/DriverRegistration', function () {
     return view('userDriver');
 });
+
+Route::post('createDriverAccount', [DriverController::class, 'createDriverAccount']);
 
 Route::get('/ClientRegistration', function () {
     return view('userClient');

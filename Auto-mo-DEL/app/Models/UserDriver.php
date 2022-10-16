@@ -18,7 +18,18 @@ class UserDriver extends Model
         'age',
         'gender',
         'contactNumber',
-        'formLicense',
-        'formBirthCertificate',
+        'license',
+        'birthCertificate',
+        'vehicleType',
     ];
+
+    public function setVehicleType($value)
+    {
+        $this->attributes['vehicleType'] = json_encode($value);
+    }
+
+    public function getVehicleType($value)
+    {
+        return $this->attributes['vehicleType'] = json_decode($value);
+    }
 }

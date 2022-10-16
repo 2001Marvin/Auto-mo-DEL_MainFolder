@@ -25,8 +25,8 @@ return new class extends Migration
             $table->integer('age')->unsigned();
             $table->enum('gender',['Male','Female']);
             $table->char('contactNumber',11);
-            $table->binary('license');
-            $table->binary('birthCertificate');
+            $table->string('license');
+            $table->string('birthCertificate');
             $table->string('vehicleType');
             $table->timestamps();
         });
@@ -40,5 +40,6 @@ return new class extends Migration
     public function down()
     {
         Schema::dropIfExists('user_drivers');
+
     }
 };
