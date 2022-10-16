@@ -13,7 +13,7 @@
             <div class="container main-div my-5">
                 <div class="row">
                     <div class="col left-div">
-                            <img src={{ URL::to('images/Auto-mo-DEL_logo.png') }} height="30%" alt="logo">
+                            <img src={{ URL::to('images/Auto-mo-DEL_logo2.png') }} height="30%" alt="logo">
                     </div>
                     <div class="col right-div">
                         <h3 class="text-center">Client Registration</h3>

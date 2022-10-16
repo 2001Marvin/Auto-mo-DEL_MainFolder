@@ -12,6 +12,8 @@
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Kadwa:wght@400;700&display=swap" rel="stylesheet">
         <link href="https://fonts.bunny.net/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400&display=swap" rel="stylesheet">
 
         <!-- Styles -->
         <style>
@@ -25,43 +27,45 @@
         </style>
     </head>
     <body class="sexybody">
-        <div class="topbar">
-            <a class="george" href="{{ route('login') }}">Log-in</a>
-            <a class="george" href="{{ url('/Registration') }}">Register</a>
-        </div>
+        <div class="bigBox">
+            <div class="topbar">
+                <a class="george" href="{{ route('login') }}">LOG-IN</a>
+                <a class="george" href="{{ url('/Registration') }}">REGISTER</a>
+            </div>
+        
             <div class="mainbox justify-content-center flex-column">
-                <div class="justify-content-center d-flex" style="margin:auto 0"> <!--div for image-->
-                    <img class="logo" src={{ URL::to('images/Auto-mo-DEL_logo.png') }} height="200px" alt="logo">
+                <div class="justify-content-center d-flex mt-4"> <!--div for image-->
+                    <img class="logo mt-4" src={{ URL::to('images/Auto-mo-DEL_logo2.png') }} height="300px" alt="logo">
                 </div>
-                <h1 class="text-center" style="font-weight:bold">Auto-mo-DEL</h1>
+                <!-- <h1 class="text-center" style="font-weight:bold">Auto-mo-DEL</h1> -->
                 <div class="row">
                     <div class="ads panel1 col-6">
-                        <h4 style="font-weight:bold">Fast</h4>
+                        <h4 style="font-weight:bold">A Profession</h4>
                         <p style="margin-left: 10px">
-                            &nbsp&nbsp&nbsp asdadsadasdasdasdas
+                            A Driver is a professional who drives clients around in an efficient, safe and timely manner.
                         </p>
                     </div>
                     <div class="ads panel2 col-6">
-                        <h4 style="font-weight:bold">Easy Access</h4>
+                        <h4 style="font-weight:bold">Service</h4>
                         <p>
-                            &nbsp&nbsp&nbsp asdadsadasdasdasdas
+                        Drivers also plan routes based on road conditions.
                         </p>
                     </div>
                     <div class="ads panel3 col-6">
                         <h4 style="font-weight:bold">Licensed Drivers</h4>
                         <p>
-                            &nbsp&nbsp&nbsp asdadsadasdasdasdas
+                        A professional who drives clients around in an efficient, safe and timely manner
                         </p>
                     </div>
                     <div class="ads panel4 col-6">
-                        <h4 style="font-weight:bold">Jade Is A Hot Single Bachelor</h4>
+                        <h4 style="font-weight:bold">Responsibilities</h4>
                         <p>
-                            &nbsp&nbsp&nbsp asdadsadasdasdasdas
+                        To safely transport either cargo or passengers from one location to another.
                         </p>
                     </div>
                 </div>
- 
-
+            </div>
+        </div>
+        
     </body>
-
 </html>
