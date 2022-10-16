@@ -13,21 +13,18 @@ return new class extends Migration
      */
     public function up()
     {
-        
-        Schema::create('user_driver_models', function (Blueprint $table) {
+        Schema::create('user_clients', function (Blueprint $table) {
             $table->id();
             $table->string('firstName');
             $table->string('lastName');
             $table->string('email')->unique();
             $table->string('password');
+            $table->string('address');
             $table->integer('age')->unsigned();
             $table->enum('gender',['Male','Female']);
             $table->char('contactNumber',11);
-            $table->binary('license');
-            $table->binary('birthCertificate');
-            $table->string('vehicleType');
+            $table->string('identification');
             $table->timestamps();
-            
         });
     }
 
@@ -38,6 +35,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('user_driver_models');
+        Schema::dropIfExists('user_clients');
     }
 };

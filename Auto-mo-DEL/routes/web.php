@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\UserClientController;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,8 +25,14 @@ Route::get('/dashboard', function () {
 require __DIR__.'/auth.php';
 
 Route::get('/DriverRegistration', function () {
-    return view('userDriver/userDriver');
+    return view('userDriver');
 });
+
+Route::get('/ClientRegistration', function () {
+    return view('userClient');
+});
+
+Route::post('createClientAccount', [UserClientController::class, 'createClientAccount']);
 
 Route::get('/Registration', function () {
     return view('registrationBridge');

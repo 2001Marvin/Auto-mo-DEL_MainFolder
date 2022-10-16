@@ -16,9 +16,11 @@
                             <img src={{ URL::to('images/Auto-mo-DEL_logo.png') }} height="30%" alt="logo">
                     </div>
                     <div class="col right-div">
-                        <h3 class="text-center">Registration</h3>
+                        <h3 class="text-center">Driver Registration</h3>
+                        <hr>
                         <div class="container">
                             <form class="row g-3">
+                            @csrf
                                 <div class="col-md-6">
                                     <label for="inputFirstName" class="form-label">First Name</label>
                                     <input type="text" class="form-control" id="inputFirstName">

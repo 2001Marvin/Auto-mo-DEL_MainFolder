@@ -16,7 +16,7 @@
             </div>
             <div class="bridgeBtnDiv">
                 <div class="bridgeBtn">
-                    <a class="bridgeBtnLink" href="">Register as Client</a>
+                    <a class="bridgeBtnLink" href="{{ url('/ClientRegistration') }}">Register as Client</a>
                 </div>
                 <div class="bridgeBtn">
                     <a class="bridgeBtnLink" href="{{ url('/DriverRegistration') }}">Register as Driver</a>
