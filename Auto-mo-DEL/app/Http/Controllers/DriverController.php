@@ -7,7 +7,7 @@ use App\Models\userDriver;
 
 class DriverController extends Controller
 {
-    function createDriverAccount(Request $request){
+    public function createDriverAccount(Request $request){
         
         // dd($request['vehicleType']);
         $inputDriver = $request->all();

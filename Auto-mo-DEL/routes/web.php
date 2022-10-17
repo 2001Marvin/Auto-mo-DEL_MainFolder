@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserClientController;
 use App\Http\Controllers\DriverController;
+use App\Http\Controllers\LoginController;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,6 +26,8 @@ Route::get('/dashboard', function () {
 
 require __DIR__.'/auth.php';
 
+
+
 Route::get('/DriverRegistration', function () {
     return view('userDriver');
 });
@@ -41,6 +44,15 @@ Route::get('/Registration', function () {
     return view('registrationBridge');
 });
 
+Route::post('loginUser', [LoginController::class, 'loginUser']);
+
 Route::get('/LoginDriver', function () {
     return view('userDriverDashboard');
 });
+
+Route::get('/LoginClient', function () {
+    return view('userClientDashboard');
+});
+
+Route::get('logout', [LoginController::class, 'logoutUser']);
+

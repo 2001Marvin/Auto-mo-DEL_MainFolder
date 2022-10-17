@@ -8,7 +8,7 @@ use App\Models\userClient;
 class UserClientController extends Controller
 {
     //
-    function createClientAccount(Request $request){
+    public function createClientAccount(Request $request){
         $firstName = $request->input('firstName');
         $lastName = $request->input('lastName');
         $email = $request->input('email');
