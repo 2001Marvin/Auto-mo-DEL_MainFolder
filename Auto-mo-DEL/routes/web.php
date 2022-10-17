@@ -40,3 +40,7 @@ Route::post('createClientAccount', [UserClientController::class, 'createClientAc
 Route::get('/Registration', function () {
     return view('registrationBridge');
 });
+
+Route::get('/LoginDriver', function () {
+    return view('userDriverDashboard');
+});
