@@ -50,6 +50,10 @@ Route::get('/LoginDriver', function () {
     return view('userDriverDashboard');
 });
 
+Route::get('/DriverProfile', function () {
+    return view('userDriverProfile');
+});
+
 Route::get('/LoginClient', function () {
     return view('userClientDashboard');
 });

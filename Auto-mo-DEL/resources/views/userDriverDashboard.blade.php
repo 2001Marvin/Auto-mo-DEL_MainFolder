@@ -32,7 +32,7 @@
         </nav>
         <div class="driverPageMainDiv">
             <div class="container mt-5">
-                <div class="list-group">
+                <div class="list-group border">
                     <a href="#" class="list-group-item list-group-item-action mt-5" aria-current="true">
                         <div class="d-flex w-100 justify-content-between">
                             <h2 class="mb-1">Hello, {{ $data->firstName }} {{ $data->lastName }}</h2>
@@ -41,6 +41,7 @@
                         <hr>
                         <h6 class="mb-1">Welcome to Driver Dashboard Page</h6>
                         <small>Auto-mo-DEL Official Webpage</small>
+                        <a href="{{ url('/DriverProfile') }}" class="m-2 d-flex flex-row-reverse">proceed to MyProfile >>></a>
                     </a>
                 </div>
             </div>

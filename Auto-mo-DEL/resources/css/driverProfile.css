@@ -1,0 +1,56 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.mainNavBar{
+    background-color: #1AEBB6;
+    padding: 0;
+}
+
+.navDiv{
+    border-bottom: 100px solid #fff;
+	border-right: 50px solid transparent;
+	height: 100px;
+	width: 500px;
+}
+
+.navDiv a img{
+    margin: 10px 10px;
+}
+
+.accountDiv{
+    margin-right: 30px;
+}
+
+.accountDiv .dropdown button{
+    color: #fff;
+}
+
+.starRating{
+    font-size: 20px;
+    color: #1AEBB6;
+}
+
+.righSideUpperDiv{
+    padding: 100px 0 0 0;
+}
+
+.overallStarRating{
+    display: flex;
+}
+
+.overallStarRating p{
+    margin-right: 5px;
+}
+
+.overallStarRating i{
+    font-size: 25px;
+    color: #1AEBB6;
+}
+
+.contactInfo{
+    color: #1AEBB6;
+    font-size: large;
+}

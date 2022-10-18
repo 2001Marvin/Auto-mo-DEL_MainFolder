@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\View;
 use App\Models\userClient;
 use App\Models\userDriver;
 use Session;
@@ -43,7 +44,7 @@ class LoginController extends Controller
     
                 if(Session::has('loginId')){
                     $data = userClient::where('email', '=', $request->inputEmail)->where('password', '=', $request->inputPassword)->first();
-
+                    
                     return view('userClientDashboard', compact('data'));
                 }
             }
