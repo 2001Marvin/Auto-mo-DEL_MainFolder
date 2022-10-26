@@ -85,7 +85,7 @@
                     <div class="col-md-8 RightSideDiv">
                         <div class="container">
                             <div class="righSideUpperDiv">
-                                <h1>{{ Session::get('firstName') }} {{ Session::get('lastName') }} (Driver)</h1>
+                                <h1>{{ Session::get('firstName') }} {{ Session::get('lastName') }} ({{ Session::get('accountType') }})</h1>
                                 <h5>{{ Session::get('address') }}</h5>
                                 <div class="overallStarRating">
                                     <p class="mr-5">Overall Rating From Past Jobs:</p>
