@@ -25,7 +25,7 @@
             <div class="accountDiv">
                 <div class="dropdown">
                     <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        
+                    {{ Session::get('firstName') }}
                     </button>
                     <ul class="dropdown-menu">
                         <li><a class="dropdown-item" href="logout">log out</a></li>
@@ -85,8 +85,8 @@
                     <div class="col-md-8 RightSideDiv">
                         <div class="container">
                             <div class="righSideUpperDiv">
-                                <h1>Jobert Jefferson (Driver)</h1>
-                                <h5>Minglanilla, Poblacion Ward 1, Cebu City, Cebu, PH</h5>
+                                <h1>{{ Session::get('firstName') }} {{ Session::get('lastName') }} (Driver)</h1>
+                                <h5>{{ Session::get('address') }}</h5>
                                 <div class="overallStarRating">
                                     <p class="mr-5">Overall Rating From Past Jobs:</p>
                                     <i class="fa-solid fa-star"></i>
@@ -98,11 +98,11 @@
                                 <div class="contactInfo">
                                         <div class="mobileNum d-flex justify-content-end">
                                             <i class="fa-sharp fa-solid fa-phone"></i>
-                                            <p>09063220157</p>
+                                            <p>{{ Session::get('contactNumber') }}</p>
                                         </div>
                                         <div class="email d-flex justify-content-end">
                                             <i class="fa-solid fa-envelope"></i>
-                                            <p>jobertson@gmail.com</p>
+                                            <p>{{ Session::get('email') }}</p>
                                         </div>
                                     </div>
                             </div>
@@ -116,15 +116,15 @@
                                         </tr>
                                         <tr>
                                             <th scope="row">Vehicle Type</th>
-                                            <td>A,C1,C2</td>
+                                            <td>{{ Session::get('vehicleType') }}</td>
                                         </tr>
                                         <tr>
                                             <th scope="row">Age</th>
-                                            <td>30</td>
+                                            <td>{{ Session::get('age') }}</td>
                                         </tr>
                                         <tr>
                                             <th scope="row">Gender</th>
-                                            <td>Male</td>
+                                            <td>{{ Session::get('gender') }}</td>
                                         </tr>
                                     </tbody>
                                 </table>

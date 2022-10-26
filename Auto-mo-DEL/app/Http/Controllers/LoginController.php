@@ -4,9 +4,10 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\View;
+use Illuminate\Support\Facades\Session;
 use App\Models\userClient;
 use App\Models\userDriver;
-use Session;
+// use Session;
 
 class LoginController extends Controller
 {
@@ -31,10 +32,23 @@ class LoginController extends Controller
                 if(Session::has('loginId')){
                     $data = userDriver::where('email', '=', $request->inputEmail)->where('password', '=', $request->inputPassword)->first();
 
+                    // print_r($data);
+                    Session::put('id', $data['id']);
+                    Session::put('accountType', $data['accountType']);
+                    Session::put('firstName', $data['firstName']);
+                    Session::put('lastName', $data['lastName']);
+                    Session::put('email', $data['email']);
+                    Session::put('password', $data['password']);
+                    Session::put('address', $data['address']);
+                    Session::put('age', $data['age']);
+                    Session::put('gender', $data['gender']);
+                    Session::put('contactNumber', $data['contactNumber']);
+                    Session::put('vehicleType', $data['vehicleType']);
+
                     return view('userDriverDashboard', compact('data'));
                 }
             }
-            return redirect('login');
+            // return redirect('login');
         }
         else{
             $user = userClient::where('email', '=', $request->inputEmail)->where('password', '=', $request->inputPassword)->first();
@@ -44,6 +58,18 @@ class LoginController extends Controller
     
                 if(Session::has('loginId')){
                     $data = userClient::where('email', '=', $request->inputEmail)->where('password', '=', $request->inputPassword)->first();
+                    
+                    Session::put('id', $data['id']);
+                    Session::put('accountType', $data['accountType']);
+                    Session::put('firstName', $data['firstName']);
+                    Session::put('lastName', $data['lastName']);
+                    Session::put('email', $data['email']);
+                    Session::put('password', $data['password']);
+                    Session::put('address', $data['address']);
+                    Session::put('age', $data['age']);
+                    Session::put('gender', $data['gender']);
+                    Session::put('contactNumber', $data['contactNumber']);
+                    Session::put('vehicleType', $data['vehicleType']);
                     
                     return view('userClientDashboard', compact('data'));
                 }
