@@ -15,6 +15,7 @@ return new class extends Migration
     {
         Schema::create('user_clients', function (Blueprint $table) {
             $table->id();
+            $table->enum('accountType',['Client','Driver']);
             $table->string('firstName');
             $table->string('lastName');
             $table->string('email')->unique();

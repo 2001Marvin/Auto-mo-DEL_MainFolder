@@ -8,7 +8,9 @@ use App\Models\userClient;
 class UserClientController extends Controller
 {
     //
-    public function createClientAccount(Request $request){
+    public function createClientAccount(Request $request)
+    {
+        $accType = "Client";
         $firstName = $request->input('firstName');
         $lastName = $request->input('lastName');
         $email = $request->input('email');
@@ -21,6 +23,7 @@ class UserClientController extends Controller
 
         $isInsertSuccessful = 
             userClient::insert([
+                'accountType' => $accType,
                 'firstName' => $firstName,
                 'lastName' => $lastName,
                 'email' => $email,
@@ -34,7 +37,8 @@ class UserClientController extends Controller
 
             
         if($isInsertSuccessful){
-            echo('<h1>Inserted Successfully</h1>');
+            // echo('<h1>Inserted Successfully</h1>');
+            return redirect('login');
         }else{
             echo('<h1>ERROR INSERTION</h1>');
         }
