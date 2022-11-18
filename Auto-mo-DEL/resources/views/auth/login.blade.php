@@ -12,13 +12,18 @@
         @vite(['resources/css/loginPage.css'])
     </head>
     <body>
+    @if(session()->has('error'))
+    <div class="alert alert-success">
+        {{ session()->get('error') }}
+    </div>
+    @endif
             <div class="container main-div my-5">
                 <div class="row">
                     <div class="col left-div"><!-- Logo div -->
                         <a href="/"><img src={{ URL::to('images/Auto-mo-DEL_logo2.png') }} height="30%" alt="logo"></a> <!-- mao ni sa logo todd -->
                     </div>
                     <div class="col right-div"><!-- form div -->
-                        <h2 class="text-center">LOGIN</h2>
+                        <h2 class="text-center">LOGIN Test</h2>
                         <br>
                         <div class="container">
                             <form class="row g-3" action="loginUser" method="POST">
@@ -44,7 +49,7 @@
                                 </div>
                             </form>
                             <div class="signup">
-                                <p class="text-center">Do Not Have An Account Yet?<a href="{{ url('/Registration') }}">Sign Up</a></p>
+                                <p class="text-center">Do Not Have An Account Yet? <a href="{{ url('/Registration') }}">Sign Up</a></p>
 
                             </div>
                         </div>

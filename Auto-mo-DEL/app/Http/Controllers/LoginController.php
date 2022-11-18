@@ -5,8 +5,10 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\Redirect;
 use App\Models\userClient;
 use App\Models\userDriver;
+
 // use Session;
 
 class LoginController extends Controller
@@ -74,7 +76,7 @@ class LoginController extends Controller
                     return view('userClientDashboard', compact('data'));
                 }
             }
-            return redirect('login');
+            return redirect()->back()->with('error', 'Incorrect Credentials' );
         }
     }
 
