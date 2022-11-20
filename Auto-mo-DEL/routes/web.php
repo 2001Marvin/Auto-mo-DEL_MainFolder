@@ -58,5 +58,9 @@ Route::get('/LoginClient', function () {
     return view('userClientDashboard');
 });
 
+Route::get('/ClientProfile', function () {
+    return view('userClientProfile');
+});
+
 Route::get('logout', [LoginController::class, 'logoutUser']);
 

@@ -14,7 +14,7 @@
     <body>
         <div class="container mainDiv">
             <div class="imageHeaderDiv">
-                    <img class="mt-5" src={{ URL::to('images/Auto-mo-DEL_logo2.png') }} height="300px" alt="logo">
+                    <a href="/"><img src={{ URL::to('images/Auto-mo-DEL_logo2.png') }} height="300px" alt="logo"></a>
                     <!-- <h3 class="logoName">Auto-mo-DEL</h3> -->
             </div>
             <div class="bridgeBtnDiv">
