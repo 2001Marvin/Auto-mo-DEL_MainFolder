@@ -3,7 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\userDriver;
+use Illuminate\Support\Facades\Session;
+use App\Models\UserDriver;
 
 class DriverController extends Controller
 {
@@ -52,4 +53,32 @@ class DriverController extends Controller
             echo('<h1>ERROR INSERTION</h1>');
         }
     }
+    // edit profile for driver
+    public function EditDriver($id, Request $request){
+        //return $id;
+        $user=UserDriver::find($id); // finds user to be edited
+        $user->fill($request->except(['id']));
+        $user->save();
+
+        Session::flush();
+
+        Session::put('id', $user->id);
+        Session::put('accountType', $user->accountType);
+        Session::put('firstName', $user->firstName);
+        Session::put('lastName', $user->lastName);
+        Session::put('email', $user->email);
+        Session::put('password', $user->password);
+        Session::put('address', $user->address);
+        Session::put('age', $user->age);
+        Session::put('gender', $user->gender);
+        Session::put('contactNumber', $user->contactNumber);
+        Session::put('vehicleType', $user->vehicleType);
+
+        if($user){
+
+
+            return redirect('DriverProfile');
+        }
+    }
 }
+

@@ -53,30 +53,39 @@ class LoginController extends Controller
             // return redirect('login');
         }
         else{
-            $user = userClient::where('email', '=', $request->inputEmail)->where('password', '=', $request->inputPassword)->first();
-            if($user){
-                $request->session()->put('loginId', $user->id);
-                $data = array();
-    
-                if(Session::has('loginId')){
-                    $data = userClient::where('email', '=', $request->inputEmail)->where('password', '=', $request->inputPassword)->first();
-                    
-                    Session::put('id', $data['id']);
-                    Session::put('accountType', $data['accountType']);
-                    Session::put('firstName', $data['firstName']);
-                    Session::put('lastName', $data['lastName']);
-                    Session::put('email', $data['email']);
-                    Session::put('password', $data['password']);
-                    Session::put('address', $data['address']);
-                    Session::put('age', $data['age']);
-                    Session::put('gender', $data['gender']);
-                    Session::put('contactNumber', $data['contactNumber']);
-                    Session::put('vehicleType', $data['vehicleType']);
-                    
-                    return view('userClientDashboard', compact('data'));
+            // $user = userClient::where('email', '=', $request->inputEmail)->where('password', '=', $request->inputPassword)->first();
+            $user = userClient::where('email', '=', $request->inputEmail);
+            if($user->first()) {
+                $user = $user->where('password', '=', $request->inputPassword);
+                if($user->first()){
+                    $user = $user->first();
+                    $request->session()->put('loginId', $user->id);
+                    $data = array();
+        
+                    if(Session::has('loginId')){
+                        $data = userClient::where('email', '=', $request->inputEmail)->where('password', '=', $request->inputPassword)->first();
+                        
+                        Session::put('id', $data['id']);
+                        Session::put('accountType', $data['accountType']);
+                        Session::put('firstName', $data['firstName']);
+                        Session::put('lastName', $data['lastName']);
+                        Session::put('email', $data['email']);
+                        Session::put('password', $data['password']);
+                        Session::put('address', $data['address']);
+                        Session::put('age', $data['age']);
+                        Session::put('gender', $data['gender']);
+                        Session::put('contactNumber', $data['contactNumber']);
+                        Session::put('vehicleType', $data['vehicleType']);
+                        
+                        return view('userClientDashboard', compact('data'));
+                    }
+                } else {
+                    return redirect()->back()->with('error_password', 'Incorrect Password');
                 }
+            } else {
+                return redirect()->back()->with('error_email', 'Incorrect E-Mail');
             }
-            return redirect()->back()->with('error', 'Incorrect Credentials' );
+
         }
     }
 

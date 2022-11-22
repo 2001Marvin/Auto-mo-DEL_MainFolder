@@ -12,6 +12,7 @@
         @vite(['resources/css/loginPage.css'])
     </head>
     <body>
+        {{-- if statement that verifies the error sessions in log-in --}}
     @if(session()->has('error'))
     <div class="alert alert-success">
         {{ session()->get('error') }}
@@ -31,10 +32,16 @@
                                 <div class="col-md-12">
                                     <label for="inputEmail" class="form-label">Email</label>
                                     <input type="email" class="form-control" id="inputEmail" name="inputEmail">
+                                    @if(session()->has('error_email'))
+                                        <p style="color:red;">Wrong E-mail</p>
+                                    @endif
                                 </div>
                                 <div class="col-md-12">
                                     <label for="inputPassword" class="form-label">Password</label>
                                     <input type="password" class="form-control" id="inputPassword" name="inputPassword">
+                                    @if(session()->has('error_password'))
+                                        <p style="color:red;">Wrong Password</p>
+                                    @endif
                                 </div>
                                 <div class="form-check form-check-inline">
                                     <input class="form-check-input" type="radio" name="inlineRadioOptions" id="radioClient" value="client">
