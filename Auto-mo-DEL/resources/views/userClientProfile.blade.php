@@ -96,6 +96,9 @@
                                     <i class="fa-regular fa-star-half-stroke"></i>
                                 </div>
                             </div>
+                            <button type="button" class="btn btn-primary" style="background-color:#1AEBB6; border-color: #e7e7e7;" id="editBtn" data-toggle="modal" data-target="#editModal">
+                                Edit Profile
+                            </button>
                             <hr>
                             <div class="rightSideLowerDiv">
                                 <table class="table mt-5 w-75 m-auto">
@@ -125,6 +128,75 @@
                 </div>
             </div>
         </div>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+        <!-- Modal -->
+        <div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="editModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Edit Profile</h5>
+                    </div>
+                    <form action="{{url('api/ClientProfile/edit/'.Session::get('id'))}}" method="post">
+                        <div class="modal-body">
+                        
+                            <div class="row">
+                                <div class="form-group col-md-4">
+                                    <label for="First Name">First Name:</label>
+                                    <input type="text" class="form-control" name="firstName" id="firstName" value={{Session::get('firstName')}}>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="form-group col-md-4">
+                                        <label for="Last Name">Last Name</label>
+                                        <input type="text" class="form-control" name="lastName" id="lastName" value={{Session::get('lastName')}}>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="form-group col-md-4">
+                                        <label for="Address">Address:</label>
+                                        <input type="text" class="form-control" name="address" id="address" value={{Session::get('address')}}>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="form-group col-md-4">
+                                    <label for="Contact Number">Contact Number:</label>
+                                    <input type="text" class="form-control" name="contactNumber" id="contactNumber" value={{Session::get('contactNumber')}}>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="form-group col-md-4">
+                                    <label for="Email">Email:</label>
+                                    <input type="text" class="form-control" name="email" id="email" value={{Session::get('email')}}>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="form-group col-md-4">
+                                    <label for="Age">Age:</label>
+                                    <input type="text" class="form-control" name="age" id="age" value={{Session::get('age')}}>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="form-group col-md-4">
+                                    <label for="Gender">Gender:</label>
+                                    <input type="text" class="form-control" name="gender" id="gender" value={{Session::get('gender')}}>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal" id="closeModal">Close</button>
+                            <button type="submit" class="btn btn-primary"style="background-color:#1AEBB6; border-color: #e7e7e7;">Save Changes</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <script src="https://code.jquery.com/jquery-3.6.1.js" integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI=" crossorigin="anonymous"></script>
+            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+            <script type="text/javascript">
+                $("#editBtn").click(function() {
+                    $("#editModal").modal('show');
+                });
+                $("#closeModal").click(function() {
+                    $("#editModal").modal('hide');
+                });
+            </script>
     </body>
 </html>

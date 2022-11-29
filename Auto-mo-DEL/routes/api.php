@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DriverController;
+use App\Http\Controllers\UserClientController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,5 +20,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-
+//route for driver edit
 Route::post('DriverProfile/edit/{id}', [DriverController::class, 'EditDriver']);
+//route for client edit
+Route::post('ClientProfile/edit/{id}', [UserClientController::class, 'EditClient']);

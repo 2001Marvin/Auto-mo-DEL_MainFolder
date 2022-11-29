@@ -42,6 +42,24 @@ class UserClientController extends Controller
         }else{
             echo('<h1>ERROR INSERTION</h1>');
         }
+
+    }
+      // edit profile for client
+      public function EditClient($id, Request $request){
+        //return $id;
+        $user=userClient::find($id); // finds user to be edited
+        $user->fill($request->except(['id']));
+        $user->save();
+
+        $request->session()->put('firstName', $user->firstName);
+        $request->session()->put('lastName', $user->lastName);
+        $request->session()->put('email', $user->email);
+        $request->session()->put('address', $user->address);
+        $request->session()->put('age', $user->age);
+        $request->session()->put('gender', $user->gender);
+
+
+        return back();
     }
      
 }
