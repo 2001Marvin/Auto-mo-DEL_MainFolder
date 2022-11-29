@@ -60,25 +60,15 @@ class DriverController extends Controller
         $user->fill($request->except(['id']));
         $user->save();
 
-        Session::flush();
-
-        Session::put('id', $user->id);
-        Session::put('accountType', $user->accountType);
-        Session::put('firstName', $user->firstName);
-        Session::put('lastName', $user->lastName);
-        Session::put('email', $user->email);
-        Session::put('password', $user->password);
-        Session::put('address', $user->address);
-        Session::put('age', $user->age);
-        Session::put('gender', $user->gender);
-        Session::put('contactNumber', $user->contactNumber);
-        Session::put('vehicleType', $user->vehicleType);
-
-        if($user){
+        $request->session()->put('firstName', $user->firstName);
+        $request->session()->put('lastName', $user->lastName);
+        $request->session()->put('email', $user->email);
+        $request->session()->put('address', $user->address);
+        $request->session()->put('age', $user->age);
+        $request->session()->put('gender', $user->gender);
 
 
-            return redirect('DriverProfile');
-        }
+        return back();
     }
 }
 
