@@ -24,11 +24,12 @@ class DriverController extends Controller
         $license = $request->input('license');
         $birthCertificate = $request->input('birthCertificate');
         $vehicleType = implode(',',$request->input('vehicleType'));
+        $numberOfExperience = $request->input('numberOfExperience');
 
 
         // dd( $inputDriver['vehicleType']);
         // $isInsertSuccessful = userDriver::create($inputDriver);
-
+        $availability = 1;
         $isInsertSuccessful = 
             userDriver::insert([
                 'accountType' => $accType,
@@ -43,6 +44,8 @@ class DriverController extends Controller
                 'license' => $license,
                 'birthCertificate' => $birthCertificate,
                 'vehicleType' => $vehicleType,
+                'numberOfExperience' => $numberOfExperience,
+                'availability' => $availability,
             ]);
 
             

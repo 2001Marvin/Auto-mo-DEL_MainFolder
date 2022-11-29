@@ -21,6 +21,7 @@ class UserDriver extends Model
         'license',
         'birthCertificate',
         'vehicleType',
+        'numberOfExperience',
     ];
 
     public function setVehicleType($value)

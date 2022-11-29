@@ -42,3 +42,75 @@
     margin: 50px 0 -15px 10px;
     font-size: 12px;
 }
+
+.availability1{
+    color: #F1F4F8;
+    background-color: #1AEBB6;
+    border-radius: 12px;
+    font-size: 12px;
+    padding: 5px 10px;
+}
+.availability2{
+    color: #F1F4F8;
+    background-color: #eb391a;
+    border-radius: 12px;
+    font-size: 12px;
+    padding: 5px 10px;
+}
+.carHeader{
+    min-height: 120px;
+}
+
+.vehicleTypeDiv{
+    min-height: 80px;
+    display:block;
+}
+
+.vehicleTypeSmallDiv{
+    margin: 2px 5px;
+    padding: 5px 5px;
+    background-color: #F1F4F8;
+    border: 1px solid #A3A3AF;
+    border-radius: 5px;
+    font-size: 12px;
+}
+
+.invitationBtn{
+    margin: auto;
+    padding: 5px 10px;
+    background-color: #1AEBB6;
+    border: 1px solid;
+    border-radius: 10px;
+    color: #fff;
+    text-align: center;
+}
+
+.invitationBtn:hover{
+    border: 1px solid #1AEBB6;
+    color: #1AEBB6;
+    transition: 0.8s;
+}
+
+
+/* modal css */
+.modal-header{
+    background-color: #1AEBB6;
+    color: #fff;
+}
+
+.modal-HireBtn{
+    margin: auto;
+    padding: 5px 10px;
+    background-color: #1AEBB6;
+    border: 1px solid;
+    border-radius: 10px;
+    color: #fff;
+    text-align: center;
+    font-size: 30px;
+}
+
+.modal-HireBtn:hover{
+    border: 1px solid #1AEBB6;
+    color: #1AEBB6;
+    transition: 0.8s;
+}

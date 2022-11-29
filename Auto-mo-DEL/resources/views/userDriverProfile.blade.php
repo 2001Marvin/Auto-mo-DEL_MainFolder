@@ -148,43 +148,43 @@
                                     <div class="modal-body">
                                     
                                         <div class="row">
-                                            <div class="form-group col-md-4">
+                                            <div class="form-group col-md-12">
                                                 <label for="First Name">First Name:</label>
                                                 <input type="text" class="form-control" name="firstName" id="firstName" value={{Session::get('firstName')}}>
                                                 </div>
                                             </div>
                                             <div class="row">
-                                                <div class="form-group col-md-4">
+                                                <div class="form-group col-md-12">
                                                     <label for="Last Name">Last Name</label>
                                                     <input type="text" class="form-control" name="lastName" id="lastName" value={{Session::get('lastName')}}>
                                                 </div>
                                             </div>
                                             <div class="row">
-                                                <div class="form-group col-md-4">
+                                                <div class="form-group col-md-12">
                                                     <label for="Address">Address:</label>
                                                     <input type="text" class="form-control" name="address" id="address" value={{Session::get('address')}}>
                                                 </div>
                                             </div>
                                             <div class="row">
-                                                <div class="form-group col-md-4">
+                                                <div class="form-group col-md-12">
                                                 <label for="Contact Number">Contact Number:</label>
                                                 <input type="text" class="form-control" name="contactNumber" id="contactNumber" value={{Session::get('contactNumber')}}>
                                                 </div>
                                             </div>
                                             <div class="row">
-                                                <div class="form-group col-md-4">
+                                                <div class="form-group col-md-12">
                                                 <label for="Email">Email:</label>
                                                 <input type="text" class="form-control" name="email" id="email" value={{Session::get('email')}}>
                                                 </div>
                                             </div>
                                             <div class="row">
-                                                <div class="form-group col-md-4">
+                                                <div class="form-group col-md-12">
                                                 <label for="Age">Age:</label>
                                                 <input type="text" class="form-control" name="age" id="age" value={{Session::get('age')}}>
                                                 </div>
                                             </div>
                                             <div class="row">
-                                                <div class="form-group col-md-4">
+                                                <div class="form-group col-md-12">
                                                 <label for="Gender">Gender:</label>
                                                 <input type="text" class="form-control" name="gender" id="gender" value={{Session::get('gender')}}>
                                             </div>

@@ -21,11 +21,27 @@ class LiveSearchController extends Controller
             if($query != ''){
                 $data = DB::table('user_drivers')
                     ->where('firstName', 'like', '%'.$query.'%')
+                        ->where(function($query){
+                            $query->where('availability', '=','1');
+                        })
+                    ->orWhere('lastName', 'like', '%'.$query.'%')
+                        ->where(function($query){
+                            $query->where('availability', '=','1');
+                        })
+                    ->orWhere('address', 'like', '%'.$query.'%')
+                        ->where(function($query){
+                            $query->where('availability', '=','1');
+                        })
+                    ->orWhere('vehicleType', 'like', '%'.$query.'%')
+                        ->where(function($query){
+                            $query->where('availability', '=','1');
+                        })
                     ->orderBy('id', 'asc')
                     ->get();
             }
             else{
                 $data = DB::table('user_drivers')
+                    ->where('availability', '=','1')
                     ->orderBy('id', 'asc')
                     ->get();
             }
@@ -34,22 +50,101 @@ class LiveSearchController extends Controller
             if($total_row > 0){
                 foreach($data as $row)
                 {
+                    $row->vehicleType = explode(',', $row->vehicleType);
                     $output .= '
                     <div class="col">
                         <div class="card">
-                            <div class="py-2">
+                            <div class="carHeader py-2">
                                 <img src="images/defaultProfilePhoto.png" class="rounded float-start" height="100px" alt="...">
-                                <div>
+                                <div class="carHeader">
                                     <h5 class="card-title">'.$row->firstName.' '.$row->lastName.'</h5>
-                                    <p class="card-title">'.$row->address.'</p>
+                                    <p class="card-title" style="color:#A3A3AF">'.$row->address.'</p>
+                                    <span class="availability1">AVAILABLE</span>
                                 </div>
-                                
                             </div>
                             <hr>
                             <div class="card-body">
-                                <h5 class="card-title">'.$row->vehicleType.'</h5>
-                                <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                                <a href="#" class="btn btn-primary">Go somewhere</a>
+                                <p style="color:#A3A3AF">VEHICLE TYPE</p>
+                                <div class="vehicleTypeDiv">';
+                                    foreach($row->vehicleType as $value)
+                                    {
+                                        $output .= '<span class="vehicleTypeSmallDiv">'.$value.'</span>';
+                                    }
+                    $output .=  '</div>
+                                 <table class="table table-bordered">
+                                    <tbody>
+                                        <tr>
+                                            <td><i class="fa-solid fa-car"></i> '.$row->numberOfExperience.' Years Of Experience</td>
+                                            <td><i class="fa-solid fa-sack-dollar"></i> 1,500 Pesos/Day</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <div class="text-center">
+                                    <!-- Button trigger modal -->
+                                    <button type="button" class="btn invitationBtn" data-bs-toggle="modal" data-bs-target="#exampleModal'.$row->id.'">
+                                    Invite for a Job
+                                    </button>
+                                </div>
+                                
+                            </div>
+                        </div>
+                    </div>
+
+
+
+                    <!-- Modal -->
+                    <div class="modal fade" id="exampleModal'.$row->id.'" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog modal-lg">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <div class="container text-center ">
+                                        <div class="row">
+                                            <div class="col-4">
+                                                <img src="images/defaultProfilePhoto.png" class="rounded float-start" height="200px" alt="...">
+                                            </div>
+                                            <div class="col-8 text-start my-3 modalHeader">
+                                                <div class="d-flex">
+                                                    <h1 class="modal-title fs-1" id="exampleModalLabel">'.$row->firstName.' '.$row->lastName.'</h1>
+                                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                </div>
+                                                <h3 class="modal-title fs-4">'.$row->accountType.'<h3>
+                                                <h2 class="modal-title fs-5"><i class="fa-solid fa-location-dot"></i> '.$row->address.'<h2>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="modal-body">
+                                    <div class="container">
+                                        <table class="table">
+                                            <tbody>
+                                                <tr>
+                                                    <th scope="row">Years Of Experience</th>
+                                                    <td>'.$row->numberOfExperience.' Years</td>
+
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row">Salary Rate</th>
+                                                    <td>1,500 Pesos/Day</td>
+
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row">About Self</th>
+                                                    <td>
+                                                        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s 
+                                                        standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a 
+                                                        type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining 
+                                                        essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, 
+                                                        and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+                                                    </td>
+
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn modal-HireBtn">Hire Driver</button>
+                                </div>
                             </div>
                         </div>
                     </div>

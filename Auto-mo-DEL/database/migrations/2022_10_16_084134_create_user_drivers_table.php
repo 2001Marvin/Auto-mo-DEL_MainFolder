@@ -29,6 +29,8 @@ return new class extends Migration
             $table->string('license');
             $table->string('birthCertificate');
             $table->string('vehicleType');
+            $table->integer('numberOfExperience');
+            $table->integer('availability');
             $table->timestamps();
         });
     }
