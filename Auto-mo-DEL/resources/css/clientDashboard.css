@@ -27,3 +27,18 @@
 .accountDiv .dropdown button{
     color: #fff;
 }
+
+.vehicleTypeSmallDiv{
+    background-color: #1AEBB6;
+}
+
+.searchContainer{
+    background-color: #F1F4F8;
+    padding-top: 50px;
+}
+
+
+.totalDrivers{
+    margin: 50px 0 -15px 10px;
+    font-size: 12px;
+}
