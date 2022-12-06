@@ -38,8 +38,10 @@ class UserClientController extends Controller
             
         if($isInsertSuccessful){
             // echo('<h1>Inserted Successfully</h1>');
+            alert("Client is successfully registered");
             return redirect('login');
         }else{
+            alert("Error occured. Client is unsuccessfully registered");
             echo('<h1>ERROR INSERTION</h1>');
         }
 

@@ -83,7 +83,27 @@
                             </div>
                         </div>
                     </div>
-                    <div class="tab-pane fade" id="hired-tab-pane" role="tabpanel" aria-labelledby="hired-tab" tabindex="0">...</div>
+                    <div class="tab-pane fade" id="hired-tab-pane" role="tabpanel" aria-labelledby="hired-tab" tabindex="0">
+                        <div class="container py-3 searchContainer_Hired">
+                            <div class="driverPageMainDivHeader_Hired">
+                                <div class="row">
+                                    <div class="col">
+                                    </div>
+                                    <div class="col">
+                                        <input type="text" name="searchBtn_Hired" id="searchBtn_Hired" class="form-control" placeholder="First Name / Last Name / Address" aria-label="Last name">
+                                    </div>
+                                </div>
+                            </div>
+                            <p class="totalDrivers"><span id="total_records_Hired"></span> Total Hired Drivers</p>
+                            
+                            <hr class="breaker">
+                            <div class="clientPageMainDivBody_Hired">
+                            
+                            <div class="row row-cols-2 row-cols-md-3 g-4 driverCardDeck_Hired">
+                            </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
 
@@ -118,6 +138,25 @@
                     var query = $(this).val();
                     fetch_drivers_data(query);
                 })
+
+                fetch_hired_drivers_data();
+
+                function fetch_hired_drivers_data(query='')
+                {
+                    // alert("load data = " + query);
+                    $.ajax({
+                        url:"{{ route('getHiredDrivers') }}",
+                        method: 'GET',
+                        data: {query: query},
+                        dataType: 'json',
+                        success: function(data)
+                        {
+                            $('.driverCardDeck_Hired').html(data.table_data_Hired);
+                            $('#total_records_Hired').text(data.total_data_Hired);
+                            console.log(data.total_data_Hired);
+                        }
+                    })
+                }
 
             });
         </script>

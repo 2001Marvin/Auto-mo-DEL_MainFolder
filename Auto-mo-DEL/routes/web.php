@@ -5,6 +5,7 @@ use App\Http\Controllers\UserClientController;
 use App\Http\Controllers\DriverController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\LiveSearchController;
+use App\Http\Controllers\HiringDriverController;
 
 /*
 |--------------------------------------------------------------------------
@@ -63,9 +64,16 @@ Route::get('/LoginClient', [LiveSearchController::class, 'index']);
 
 Route::get('/getDrivers', [LiveSearchController::class,'getDrivers'])->name('getDrivers');
 
+Route::get('/getHiredDrivers', [LiveSearchController::class,'getHiredDrivers'])->name('getHiredDrivers');
+
 Route::get('/ClientProfile', function () {
     return view('userClientProfile');
 });
 
 Route::get('logout', [LoginController::class, 'logoutUser']);
+
+
+
+
+Route::get('/startHireDriver/{driverId}', [HiringDriverController::class, 'startHireDriver']);
 
