@@ -24,3 +24,20 @@
     background-color: #1AEBB6;
     padding: 75px 25px;
 }
+
+.registerBtn{
+    margin-top: 30px;
+    padding: 10px 50px;
+    border: 5px solid #f0eeee;
+    border-radius: 20px;
+    background-color:#f0eeee;
+    color: #000;
+    font-size: 20px;
+}
+
+.registerBtn:hover{
+    color: #f0eeee;
+    border: 5px solid #f0eeee;
+    background-color:#1AEBB6;
+    box-shadow: 10px 10px 40px #eeeeee;
+}

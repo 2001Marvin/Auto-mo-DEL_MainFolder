@@ -72,10 +72,14 @@
                                     <input type="number" class="form-control" id="contactNumber" name="contactNumber">
                                 </div>
                                 <div class="col-md-6">
+                                    <label for="numberOfExperience" class="form-label">Number Of Years Of Experience</label>
+                                    <input type="number" class="form-control" id="numberOfExperience" name="numberOfExperience" min="0">
+                                </div>
+                                <div class="col-md-6">
                                     <label for="license" class="form-label">License</label>
                                     <input class="form-control" type="file" id="license" name="license">
                                 </div>
-                                <div class="col-md-6">
+                                <div class="col-md-12">
                                     <label for="birthCertificate" class="form-label">Birth Certificate</label>
                                     <input class="form-control" type="file" id="birthCertificate" name="birthCertificate">
                                 </div>
@@ -118,12 +122,8 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-md-6">
-                                    <label for="numberOfExperience" class="form-label">Number Of Years Of Experience</label>
-                                    <input type="number" class="form-control w-50" id="numberOfExperience" name="numberOfExperience" min="0">
-                                </div>
                                 <div class="col-12 text-center">
-                                    <button type="submit" class="btn btn-primary">Register</button>
+                                    <button type="submit" class="btn registerBtn">Register</button>
                                 </div>
                             </form>
                         </div>

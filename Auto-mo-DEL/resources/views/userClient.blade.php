@@ -73,7 +73,7 @@
                                     <input class="form-control" type="file" id="identification" name="identification">
                                 </div>
                                 <div class="col-12 text-center">
-                                    <button type="submit" class="btn btn-primary">Register</button>
+                                    <button type="submit" class="btn registerBtn">Register</button>
                                 </div>
                             </form>
                         </div>
