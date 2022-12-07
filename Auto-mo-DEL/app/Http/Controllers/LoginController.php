@@ -34,7 +34,8 @@ class LoginController extends Controller
                 if(Session::has('loginId')){
                     $data = userDriver::where('email', '=', $request->inputEmail)->where('password', '=', $request->inputPassword)->first();
 
-                    // print_r($data);
+                    // print_r($data['id']);
+                    session_start();
                     Session::put('id', $data['id']);
                     Session::put('accountType', $data['accountType']);
                     Session::put('firstName', $data['firstName']);
@@ -46,8 +47,9 @@ class LoginController extends Controller
                     Session::put('gender', $data['gender']);
                     Session::put('contactNumber', $data['contactNumber']);
                     Session::put('vehicleType', $data['vehicleType']);
+                    // echo(session()->get('id'));
 
-                    return view('userDriverDashboard', compact('data'));
+                    return redirect('LoginDriver');
                 }
             }
             // return redirect('login');
@@ -77,7 +79,8 @@ class LoginController extends Controller
                         Session::put('contactNumber', $data['contactNumber']);
                         Session::put('vehicleType', $data['vehicleType']);
                         
-                        return view('userClientDashboard', compact('data'));
+                        //return view('LoginClient', compact('data'));
+                        return redirect('LoginClient');
                     }
                 } else {
                     return redirect()->back()->with('error_password', 'Incorrect Password');

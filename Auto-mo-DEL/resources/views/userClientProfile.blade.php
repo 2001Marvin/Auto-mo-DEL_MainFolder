@@ -28,6 +28,8 @@
                     {{ Session::get('firstName') }}
                     </button>
                     <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="LoginClient">Dashboard</a></li>
+                        <li><a class="dropdown-item" href="ClientProfile">Profile</a></li>
                         <li><a class="dropdown-item" href="logout">log out</a></li>
                     </ul>
                 </div>

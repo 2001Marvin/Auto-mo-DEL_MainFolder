@@ -14,7 +14,7 @@ class LiveSearchController extends Controller
 {
     function index()
     {
-        return view('livesearch');
+        return view('userClientDashboard');
     }
     
     function getDrivers(Request $request)
@@ -251,10 +251,7 @@ class LiveSearchController extends Controller
                                     </tbody>
                                 </table>
                                 <div class="text-center">
-                                    <!-- Button trigger modal -->
-                                    <button type="button" class="btn invitationBtn" data-bs-toggle="modal" data-bs-target="#exampleModal'.$row->id.'">
-                                    End Job Contract
-                                    </button>
+                                    <a href="/endHireDriver/'.$row->id.'" class="btn invitationBtn">End Job Contract</a>
                                 </div>
                                 
                             </div>

@@ -22,7 +22,10 @@
             <div class="accountDiv">
                 <div class="dropdown">
                     <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        {{ $data->firstName }}
+                        <?php 
+                            session_start();
+                            echo session()->get('firstName');
+                        ?>
                     </button>
                     <ul class="dropdown-menu">
                         <li><a class="dropdown-item" href="logout">log out</a></li>
@@ -35,7 +38,11 @@
                 <div class="list-group border">
                     <a href="#" class="list-group-item list-group-item-action mt-5" aria-current="true">
                         <div class="d-flex w-100 justify-content-between">
-                            <h2 class="mb-1">Hello, {{ $data->firstName }} {{ $data->lastName }}</h2>
+                            <h2 class="mb-1">
+                                <?php 
+                                    echo ('Hello, '.session()->get('firstName').' '.session()->get('lastName'));
+                                ?>
+                            </h2>
                             <small>Auto-mo-DEL</small>
                         </div>
                         <hr>

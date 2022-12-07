@@ -77,3 +77,5 @@ Route::get('logout', [LoginController::class, 'logoutUser']);
 
 Route::get('/startHireDriver/{driverId}', [HiringDriverController::class, 'startHireDriver']);
 
+Route::get('/endHireDriver/{driverId}', [HiringDriverController::class, 'endHireDriver']);
+

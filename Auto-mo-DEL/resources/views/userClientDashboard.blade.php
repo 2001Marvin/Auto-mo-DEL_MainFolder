@@ -27,9 +27,13 @@
             <div class="accountDiv">
                 <div class="dropdown">
                     <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        {{ $data->firstName }}
+                        <?php 
+                            session_start();
+                            echo session()->get('firstName');
+                        ?>
                     </button>
                     <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="LoginClient">Dashboard</a></li>
                         <li><a class="dropdown-item" href="ClientProfile">Profile</a></li>
                         <li><a class="dropdown-item" href="logout">log out</a></li>
                     </ul>
@@ -37,20 +41,7 @@
             </div>
         </nav>
         <div class="driverPageMainDiv">
-            <!-- <div class="container mt-5">
-                <div class="list-group">
-                    <a href="#" class="list-group-item list-group-item-action mt-5" aria-current="true">
-                        <div class="d-flex w-100 justify-content-between">
-                            <h2 class="mb-1">Hello, {{ $data->firstName }} {{ $data->lastName }}</h2>
-                            <small>Auto-mo-DEL</small>
-                        </div>
-                        <hr>
-                        <h6 class="mb-1">Welcome to Driver Dashboard Page</h6>
-                        <small>Auto-mo-DEL Official Webpage</small>
-                    </a>
-                </div>
-            </div> -->
-
+        
             <div class="container my-5">
                 <ul class="nav nav-tabs" id="myTab" role="tablist">
                     <li class="nav-item" role="presentation">
@@ -73,7 +64,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <p class="totalDrivers"><span id="total_records"></span> Total Drivers</p>
+                            <p class="totalDrivers"><span id="total_records"></span> Total Available Drivers</p>
                             
                             <hr class="breaker">
                             <div class="clientPageMainDivBody">
