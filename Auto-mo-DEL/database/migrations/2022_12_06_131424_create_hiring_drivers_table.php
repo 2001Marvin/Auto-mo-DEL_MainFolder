@@ -18,6 +18,8 @@ return new class extends Migration
             $table->integer("clientID");
             $table->integer("driverID");
             $table->integer("activeInd");
+            $table->boolean("isPending")->default(true);
+            $table->boolean("isDeleted")->default(false);
             $table->timestamps();
         });
     }

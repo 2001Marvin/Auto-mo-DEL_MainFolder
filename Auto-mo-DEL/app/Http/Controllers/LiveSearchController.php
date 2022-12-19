@@ -183,6 +183,7 @@ class LiveSearchController extends Controller
                     ->join('user_clients', 'hiring_drivers.clientID', '=', 'user_clients.id')
                     ->join('user_drivers', 'user_drivers.id', '=', 'hiring_drivers.driverID')
                     ->where('hiring_drivers.clientID','=',$clientIdValue)
+                    ->where('isPending','=',false)
                     ->orWhere('firstName', 'like', '%'.$query.'%')
                         ->where(function($query){
                             $query->where('availability', '=','0');
@@ -199,6 +200,7 @@ class LiveSearchController extends Controller
                         ->where(function($query){
                             $query->where('availability', '=','0');
                         })
+                    ->select('hiring_drivers.*', 'user_clients.*', 'user_drivers.*','hiring_drivers.id as hire_id')
                     ->orderBy('hiring_drivers.id', 'asc')
                     ->get();
             }
@@ -213,6 +215,8 @@ class LiveSearchController extends Controller
                     ->join('user_clients', 'hiring_drivers.clientID', '=', 'user_clients.id')
                     ->join('user_drivers', 'user_drivers.id', '=', 'hiring_drivers.driverID')
                     ->where('hiring_drivers.clientID','=',$clientIdValue)
+                    ->where('isPending','=',false)
+                    ->select('hiring_drivers.*', 'user_clients.*', 'user_drivers.*','hiring_drivers.id as hire_id')
                     ->orderBy('hiring_drivers.id', 'asc')
                     ->get();
             }
@@ -251,7 +255,117 @@ class LiveSearchController extends Controller
                                     </tbody>
                                 </table>
                                 <div class="text-center">
-                                    <a href="/endHireDriver/'.$row->id.'" class="btn invitationBtn">End Job Contract</a>
+                                    <a href="/endHireDriver/'.$row->id.'/'.$row->hire_id.'" class="btn invitationBtn">End Job Contract</a>
+                                </div>
+                                
+                            </div>
+                        </div>
+                    </div>
+                    ';
+                }
+            }
+            else{
+                $output = '
+                    <tr>
+                        <td align="center" colspan="4">NO DATA FOUND</td>
+                    </tr>
+                ';
+            }
+            $data = array(
+                'table_data_Hired' => $output,
+                'total_data_Hired' => $total_row
+            );
+            echo json_encode($data);
+        }else{
+            return view('userClientDashboard');
+        }
+
+    }
+
+    function getPendingDrivers(Request $request)
+    {
+        if($request->ajax()){
+            $clientIdValue = session()->get('id');
+            $output = '';
+            $query = $request->get('query');
+            if($query != ''){
+                $data = DB::table('hiring_drivers')
+                    ->join('user_clients', 'hiring_drivers.clientID', '=', 'user_clients.id')
+                    ->join('user_drivers', 'user_drivers.id', '=', 'hiring_drivers.driverID')
+                    ->where('hiring_drivers.clientID','=',$clientIdValue)
+                    ->where('isPending','=',true)
+                    ->orWhere('firstName', 'like', '%'.$query.'%')
+                        ->where(function($query){
+                            $query->where('availability', '=','0');
+                        })
+                    ->orWhere('lastName', 'like', '%'.$query.'%')
+                        ->where(function($query){
+                            $query->where('availability', '=','0');
+                        })
+                    ->orWhere('address', 'like', '%'.$query.'%')
+                        ->where(function($query){
+                            $query->where('availability', '=','0');
+                        })
+                    ->orWhere('vehicleType', 'like', '%'.$query.'%')
+                        ->where(function($query){
+                            $query->where('availability', '=','0');
+                        })
+                    ->orderBy('hiring_drivers.id', 'asc')
+                    ->select('hiring_drivers.*', 'user_clients.*', 'user_drivers.*','hiring_drivers.id as hire_id')
+                    ->get();
+            }
+            else{
+                //SELECT * 
+                //FROM `hiring_drivers` 
+                //INNER JOIN `user_clients` 
+                //  ON user_clients.id = hiring_drivers.clientID 
+                //INNER JOIN `user_drivers` 
+                //  ON user_drivers.id = hiring_drivers.driverID
+                $data = DB::table('hiring_drivers')
+                    ->join('user_clients', 'hiring_drivers.clientID', '=', 'user_clients.id')
+                    ->join('user_drivers', 'user_drivers.id', '=', 'hiring_drivers.driverID')
+                    ->where('hiring_drivers.clientID','=',$clientIdValue)
+                    ->where('isPending','=',true)
+                    ->orderBy('hiring_drivers.id', 'asc')
+                    ->select('hiring_drivers.*', 'user_clients.*', 'user_drivers.*','hiring_drivers.id as hire_id')
+                    ->get();
+            }
+
+            $total_row = $data->count();
+            if($total_row > 0){
+                foreach($data as $row)
+                {
+                    $row->vehicleType = explode(',', $row->vehicleType);
+                    $output .= '
+                    <div class="col">
+                        <div class="card">
+                            <div class="carHeader py-2">
+                                <img src="images/defaultProfilePhoto.png" class="rounded float-start" height="100px" alt="...">
+                                <div class="carHeader">
+                                    <h5 class="card-title">'.$row->firstName.' '.$row->lastName.'</h5>
+                                    <p class="card-title" style="color:#A3A3AF">'.$row->address.'</p>
+                                    <span class="availability2">PENDING</span>
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="card-body">
+                                <p style="color:#A3A3AF">VEHICLE TYPE</p>
+                                <div class="vehicleTypeDiv">';
+                                    foreach($row->vehicleType as $value)
+                                    {
+                                        $output .= '<span class="vehicleTypeSmallDiv">'.$value.'</span>';
+                                    }
+                    $output .=  '</div>
+                                 <table class="table table-bordered">
+                                    <tbody>
+                                        <tr>
+                                            <td><i class="fa-solid fa-car"></i> '.$row->numberOfExperience.' Years Of Experience</td>
+                                            <td><i class="fa-solid fa-sack-dollar"></i> 1,500 Pesos/Day</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <div class="text-center">
+                                    <a href="/endHireDriver/'.$row->id.'/'.$row->hire_id.'" class="btn btn-danger">Cancel Request</a>
                                 </div>
                                 
                             </div>

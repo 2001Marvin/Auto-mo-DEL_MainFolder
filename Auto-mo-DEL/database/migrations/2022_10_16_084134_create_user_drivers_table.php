@@ -28,6 +28,7 @@ return new class extends Migration
             $table->char('contactNumber',11);
             $table->string('license');
             $table->string('birthCertificate');
+            $table->integer('numberOfExperience');
             $table->string('vehicleType');
             $table->integer('numberOfExperience');
             $table->integer('availability');

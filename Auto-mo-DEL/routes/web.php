@@ -48,9 +48,7 @@ Route::get('/Registration', function () {
 
 Route::post('loginUser', [LoginController::class, 'loginUser']);
 
-Route::get('/LoginDriver', function () {
-    return view('userDriverDashboard');
-});
+Route::get('/LoginDriver', [DriverController::class, 'index']);
 
 Route::get('/DriverProfile', function () {
     return view('userDriverProfile');
@@ -66,6 +64,8 @@ Route::get('/getDrivers', [LiveSearchController::class,'getDrivers'])->name('get
 
 Route::get('/getHiredDrivers', [LiveSearchController::class,'getHiredDrivers'])->name('getHiredDrivers');
 
+Route::get('/getPendingDrivers', [LiveSearchController::class,'getPendingDrivers'])->name('getPendingDrivers');
+
 Route::get('/ClientProfile', function () {
     return view('userClientProfile');
 });
@@ -77,5 +77,11 @@ Route::get('logout', [LoginController::class, 'logoutUser']);
 
 Route::get('/startHireDriver/{driverId}', [HiringDriverController::class, 'startHireDriver']);
 
-Route::get('/endHireDriver/{driverId}', [HiringDriverController::class, 'endHireDriver']);
+Route::get('/endHireDriver/{driverId}/{id}', [HiringDriverController::class, 'endHireDriver']);
+
+Route::get('/acceptJobDriver/{id}', [HiringDriverController::class, 'acceptJobDriver']);
+
+Route::get('/declineJobDriver/{id}', [HiringDriverController::class, 'declineJobDriver']);
+
+Route::get('/endJobDriver/{id}', [HiringDriverController::class, 'endJobDriver']);
 

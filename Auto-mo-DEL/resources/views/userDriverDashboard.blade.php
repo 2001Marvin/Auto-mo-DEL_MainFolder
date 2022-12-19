@@ -36,7 +36,6 @@
         <div class="driverPageMainDiv">
             <div class="container mt-5">
                 <div class="list-group border">
-                    <a href="#" class="list-group-item list-group-item-action mt-5" aria-current="true">
                         <div class="d-flex w-100 justify-content-between">
                             <h2 class="mb-1">
                                 <?php 
@@ -46,10 +45,61 @@
                             <small>Auto-mo-DEL</small>
                         </div>
                         <hr>
-                        <h6 class="mb-1">Welcome to Driver Dashboard Page</h6>
-                        <small>Auto-mo-DEL Official Webpage</small>
+
+                        <p><b class="totalDrivers">Pending Offers from Clients:</b></p>
+                        <div class="row row-cols-2 row-cols-md-3 g-4">
+                            @foreach($pending as $item)
+                            <div class="col">
+                                <div class="card">
+                                    <div class="carHeader py-2">
+                                        <img src="images/defaultProfilePhoto.png" class="rounded float-start" height="100px" alt="...">
+                                        <div class="carHeader">
+                                            <h5 class="card-title">{{$item->firstName}} {{$item->lastName}}</h5>
+                                            <p class="card-title" style="color:#A3A3AF">{{$item->address}}</p>
+                                            <p class="card-title" style="color:#A3A3AF">{{$item->contactNumber}}</p>
+                                            <span class="availability2">PENDING</span>
+                                        </div>
+                                    </div>
+                                    <hr>
+                                    <div class="card-body">
+                                        <div class="text-center">
+                                            <a href="/acceptJobDriver/{{$item->hire_id}}" class="btn btn-info">Accept Job</a>
+                                            <a href="/endJobDriver/{{$item->hire_id}}" class="btn btn-danger">Decline Job</a>
+                                        </div>      
+                                    </div>
+                                </div>
+                            </div>
+                            @endforeach
+                        </div>
+
+                        <p><b class="totalDrivers">On-going Jobs from Clients:</b></p>
+                        <div class="row row-cols-2 row-cols-md-3 g-4">
+                            @foreach($accepted as $item)
+                            <div class="col">
+                                <div class="card">
+                                    <div class="carHeader py-2">
+                                        <img src="images/defaultProfilePhoto.png" class="rounded float-start" height="100px" alt="...">
+                                        <div class="carHeader">
+                                            <h5 class="card-title">{{$item->firstName}} {{$item->lastName}}</h5>
+                                            <p class="card-title" style="color:#A3A3AF">{{$item->address}}</p>
+                                            <p class="card-title" style="color:#A3A3AF">{{$item->contactNumber}}</p>
+                                            <span class="availability2">ON-GOING</span>
+                                        </div>
+                                    </div>
+                                    <hr>
+                                    <div class="card-body">
+                                        <div class="text-center">
+                                            <a href="/endJobDriver/{{$item->hire_id}}" class="btn btn-info">End Job</a>
+                                        </div>      
+                                    </div>
+                                </div>
+                            </div>
+                            @endforeach
+                        </div>
+                            
+                        
+                        {{-- <small>Auto-mo-DEL Official Webpage</small> --}}
                         <a href="{{ url('/DriverProfile') }}" class="m-2 d-flex flex-row-reverse">proceed to MyProfile >>></a>
-                    </a>
                 </div>
             </div>
         </div>

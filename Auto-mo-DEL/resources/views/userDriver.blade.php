@@ -94,8 +94,8 @@
                                                         <label class="form-check-label stretched-link" for="vehicleRestrictionsCheckbox1">A  => Motorcycle</label>
                                                     </li>
                                                     <li class="list-group-item">
-                                                        <input class="form-check-input me-1" type="checkbox" name="vehicleType[]" value="Sendan" id="vehicleRestrictionsCheckbox2">
-                                                        <label class="form-check-label stretched-link" for="vehicleRestrictionsCheckbox2">B  => Sendan</label>
+                                                        <input class="form-check-input me-1" type="checkbox" name="vehicleType[]" value="Sedan" id="vehicleRestrictionsCheckbox2">
+                                                        <label class="form-check-label stretched-link" for="vehicleRestrictionsCheckbox2">B  => Sedan</label>
                                                     </li>
                                                     <li class="list-group-item">
                                                         <input class="form-check-input me-1" type="checkbox" name="vehicleType[]" value="SUV/Pick Up/Van" id="vehicleRestrictionsCheckbox3">

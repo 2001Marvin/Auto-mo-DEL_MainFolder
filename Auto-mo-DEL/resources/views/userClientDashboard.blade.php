@@ -85,6 +85,16 @@
                                     </div>
                                 </div>
                             </div>
+                            <div>
+                                <p class="totalDrivers"><span id="total_records_Pending"></span> Pending Offers for Drivers</p>
+                                
+                            </div>
+                            <hr class="breaker">
+                            <div class="clientPageMainDivBody_Pending">
+                                <div class="row row-cols-2 row-cols-md-3 g-4 driverCardDeck_Pending">
+                                </div> 
+                            </div>
+
                             <p class="totalDrivers"><span id="total_records_Hired"></span> Total Hired Drivers</p>
                             
                             <hr class="breaker">
@@ -148,6 +158,26 @@
                         }
                     })
                 }
+
+                fetch_pending_drivers_data();
+
+                function fetch_pending_drivers_data(query='')
+                {
+                    $.ajax({
+                        url:"{{ route('getPendingDrivers') }}",
+                        method: 'GET',
+                        data: {query: query},
+                        dataType: 'json',
+                        success: function(data)
+                        {
+                            $('.driverCardDeck_Pending').html(data.table_data_Hired);
+                            $('#total_records_Pending').text(data.total_data_Hired);
+                            console.log(data.total_data_Hired);
+                        }
+                    })
+                }
+
+                
 
             });
         </script>

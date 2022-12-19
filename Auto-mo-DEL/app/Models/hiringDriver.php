@@ -13,5 +13,6 @@ class hiringDriver extends Model
         'clientID',
         'driverID',
         'activeInd',
+        'isPending',
     ];
 }

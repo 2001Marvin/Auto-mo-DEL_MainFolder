@@ -5,9 +5,31 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
 use App\Models\UserDriver;
+use DB;
 
 class DriverController extends Controller
 {
+    public function index(){
+        $driverIdValue = session()->get('id');
+        $pending = DB::table('hiring_drivers')
+            ->join('user_clients', 'hiring_drivers.clientID', '=', 'user_clients.id')
+            ->where('hiring_drivers.driverId','=',$driverIdValue)
+            ->where('isPending','=',true)
+            ->select('hiring_drivers.*', 'user_clients.*','hiring_drivers.id as hire_id')
+            ->orderBy('user_clients.id', 'asc')
+            ->get();
+        $accepted = DB::table('hiring_drivers')
+            ->join('user_clients', 'hiring_drivers.clientID', '=', 'user_clients.id')
+            ->where('hiring_drivers.driverId','=',$driverIdValue)
+            ->where('isPending','=',false)
+            ->where('activeInd','=',1)
+            ->select('hiring_drivers.*', 'user_clients.*','hiring_drivers.id as hire_id')
+            ->orderBy('user_clients.id', 'asc')
+            ->get();
+        return view("userDriverDashboard", ['pending' => $pending, 'accepted' => $accepted]);
+        // return view('userDriverDashboard', $data);
+    }
+
     public function createDriverAccount(Request $request){
         
         // dd($request['vehicleType']);
